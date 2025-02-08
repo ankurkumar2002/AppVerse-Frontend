@@ -1,0 +1,47 @@
+<div class="signup-container">
+    <h2>Signup</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="signup()">
+      <div>
+        <label for="username">Username</label>
+        <input id="username" formControlName="username" required>
+        <div *ngIf="signupForm.get('username')?.touched && signupForm.get('username')?.invalid" class="error">
+          <div *ngIf="signupForm.get('username')?.errors?.required">Username is required.</div>
+          <div *ngIf="signupForm.get('username')?.errors?.minlength">Username must be at least 3 characters.</div>
+          <div *ngIf="signupForm.get('username')?.errors?.maxlength">Username must be less than 20 characters.</div>
+        </div>
+      </div>
+      <div>
+        <label for="first_name">First Name</label>
+        <input id="first_name" formControlName="first_name" required>
+        <div *ngIf="signupForm.get('first_name')?.touched && signupForm.get('first_name')?.invalid" class="error">
+          <div *ngIf="signupForm.get('first_name')?.errors?.required">First name is required.</div>
+          <div *ngIf="signupForm.get('first_name')?.errors?.minlength">First name must be at least 3 characters.</div>
+          <div *ngIf="signupForm.get('first_name')?.errors?.maxlength">First name must be less than 20 characters.</div>
+        </div>
+      </div>
+      <div>
+        <label for="last_name">Last Name</label>
+        <input id="last_name" formControlName="last_name">
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" required>
+        <div *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid" class="error">
+          <div *ngIf="signupForm.get('email')?.errors?.required">Email is required.</div>
+          <div *ngIf="signupForm.get('email')?.errors?.email">Please enter a valid email.</div>
+        </div>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input id="password" type="password" formControlName="password" required>
+        <div *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid" class="error">
+          <div *ngIf="signupForm.get('password')?.errors?.required">Password is required.</div>
+          <div *ngIf="signupForm.get('password')?.errors?.minlength">Password must be at least 8 characters.</div>
+        </div>
+      </div>
+      <button type="submit">Signup</button>
+    </form>
+    <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  </div>
+  

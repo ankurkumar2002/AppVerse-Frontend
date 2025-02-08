@@ -1,0 +1,15 @@
+:host {
+    display: block;
+    height: 100%;
+    background-color: #2f2e2e; /* Set background color to match the global styles */
+    color: #d3d3d3; /* Optional: Set text color to light gray for better readability */
+  }
+  
+  .content-wrapper {
+    margin-top: 50px; /* Adjusted to account for the navbar height */
+    padding-left: 200px; /* Adjusted to account for the sidebar width */
+    min-height: calc(100vh - 80px); /* Adjusted to account for the navbar height */
+    position: relative;
+    z-index: 0; /* Ensure the main content is below the navbar */
+    background-color: #2f2e2e; /* Ensure content wrapper background matches the global styles */
+  }

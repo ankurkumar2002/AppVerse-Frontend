@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar scroll</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+      aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <ng-container *ngIf="isLoggedIn">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Link
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Link</a>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-success" (click)="logout()">Logout</button>
+          </li>
+        </ng-container>
+        <ng-container  *ngIf="!isLoggedIn">
+          <li class="nav-item">
+            <button class="btn btn-outline-primary" routerLink="/login" >Login</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-secondary" routerLink="/signup">Signup</button>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid" *ngIf="isLoggedIn">
+  <div class="row">
+    <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar" data-bs-theme="dark">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link sidebar-link" aria-current="page" href="#">
+              <i class="bi bi-speedometer2 me-2"></i> Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link sidebar-link" href="#">
+              <i class="bi bi-cart me-2"></i> Orders
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link sidebar-link" href="#">
+              <i class="bi bi-box-seam me-2"></i> Products
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link sidebar-link" href="#">
+              <i class="bi bi-people me-2"></i> Customers
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link sidebar-link" href="#">
+              <i class="bi bi-graph-up me-2"></i> Reports
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link sidebar-link" href="#">
+              <i class="bi bi-gear me-2"></i> Integrations
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    
+  </div>
+</div>
