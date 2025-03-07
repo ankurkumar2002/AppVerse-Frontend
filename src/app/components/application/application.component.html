@@ -1,0 +1,64 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="applications-container">
+    <div class="controls-bar">
+        <div class="search-bar">
+            <span class="material-icons search-icon">search</span> <input type="text" placeholder="Search applications..." [(ngModel)]="searchQuery" (input)="onSearch()" />
+        </div>
+
+        <div class="sort-bar">
+            <label for="sortField">Sort by:</label>
+            <select id="sortField" [(ngModel)]="sortField" (change)="onSort()">
+                <option value="applicationName">Name</option>
+                <option value="price">Price</option>
+                <option value="category.categoryName">Category</option>
+            </select>
+            <select [(ngModel)]="sortOrder" (change)="onSort()">
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="applications-list">
+        <div *ngFor="let application of pagedApplications; let i = index" class="application-card">
+            <img
+              [src]="application.applicationIconUrl"
+              alt="{{ application.applicationName }}"
+              class="application-icon"
+              *ngIf="application.applicationIconUrl"
+            />
+            <div class="application-details">
+              <h3 class="application-name">{{ application.applicationName }}</h3>
+              <p class="application-description">{{ application.description }}</p>
+              <div class="price-category-row">  <!-- Container for price, category, and button -->
+                <p class="application-price">Price: ${{ application.price }}</p>
+                <p class="application-category">Category: {{ application.category?.categoryName || 'N/A' }}</p>
+                <!-- **Button on the right side with icon** -->
+                <button class="visit-button" (click)="goToApplicationUrl(application.applicationUrl)" *ngIf="application.applicationUrl">
+                    Visit <span class="material-icons visit-icon">arrow_outward</span>
+                </button>
+              </div>
+            </div>
+        </div>
+        <div *ngIf="filteredApplications.length === 0 && !isLoading && !errorMessage" class="no-applications">
+            <p>No applications found matching your criteria.</p>
+        </div>
+        <div *ngIf="errorMessage" class="error-message">
+            <p>{{ errorMessage }}</p>
+        </div>
+        <div *ngIf="isLoading" class="loading-indicator">
+            <p>Loading applications...</p>
+        </div>
+    </div>
+
+    <div class="pagination-bar" *ngIf="totalPages > 1 && !isLoading && !errorMessage && filteredApplications.length > 0">
+        <button (click)="goToPreviousPage()" [disabled]="currentPage === 1">
+            <span class="material-icons pagination-icon">chevron_left</span> Previous
+        </button>
+        <span>Page {{ currentPage }} of {{ totalPages }}</span>
+        <button (click)="goToNextPage()" [disabled]="currentPage === totalPages">
+            Next <span class="material-icons pagination-icon">chevron_right</span>
+        </button>
+    </div>
+</div>

@@ -1,53 +1,127 @@
-/* Styles for the login component */
+
 .login-container {
-    max-width: 300px;
-    margin: 0 auto;
-    padding: 1em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  .login-container h2 {
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  
-  .login-container div {
-    margin-bottom: 1em;
-  }
-  
-  .login-container label {
-    display: block;
-    margin-bottom: 0.5em;
-  }
-  
-  .login-container input[type="text"],
-  .login-container input[type="password"] {
-    width: 100%;
-    padding: 0.5em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .login-container button {
-    width: 100%;
-    padding: 0.5em;
-    border: none;
-    border-radius: 4px;
-    background-color: #007BFF;
-    color: #FFF;
-    font-size: 1em;
-    cursor: pointer;
-  }
-  
-  .login-container button:hover {
-    background-color: #0056b3;
-  }
-  
-  .login-container .error {
-    color: red;
-    text-align: center;
-    margin-top: 1em;
-  }
-  
+  /* max-width: 400px;  Comment out max-width */
+  width: 800px !important; /* Use width instead and make it wider, with !important */
+  margin: 50px auto; /* Keep margin auto for horizontal centering */
+  padding: 2.5em;
+  background-color: #222;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  border: 1px solid #444;
+  transition: box-shadow 0.3s ease;
+  /* ... rest of your .login-container styles ... */
+}
+/* ... rest of your CSS rules ... */
+
+.login-container:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7); /* Increased shadow on hover */
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 1.5em; /* More space below the title */
+  color: #eee; /* Lighter text color for dark mode */
+  font-weight: 300; /* Lighter font weight for a modern feel */
+  letter-spacing: 0.5px; /* Slight letter spacing for elegance */
+}
+
+.login-container div {
+  margin-bottom: 1.8em; /* Increased spacing between form elements */
+}
+
+.login-container label {
+  display: block;
+  margin-bottom: 0.7em; /* More space below labels */
+  color: #ddd; /* Slightly lighter label color */
+  font-weight: 200; /* Even lighter font weight for labels */
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"],
+.login-container input[type="checkbox"] {
+  width: 100%;
+  padding: 0.8em; /* Slightly larger input padding */
+  background-color: #333; /* Darker input background */
+  color: #fff; /* White text color for inputs */
+  border: 1px solid #555; /* Darker input border */
+  border-radius: 6px; /* Slightly more rounded input corners */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for inputs */
+}
+
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+  border-color: #64b5f6; /* Highlight border color on focus */
+  box-shadow: 0 0 0 2px rgba(100, 181, 246, 0.3); /* Subtle focus box shadow */
+  outline: none; /* Remove default focus outline */
+}
+
+.login-container input[type="checkbox"] {
+  width: auto; /* Reset width for checkbox */
+  display: inline-block; /* Display checkbox inline with label */
+  margin-right: 0.5em; /* Spacing after checkbox */
+  vertical-align: middle; /* Vertically align checkbox */
+  background-color: transparent; /* Make checkbox background transparent */
+  border: 1px solid #777; /* Lighter border for checkbox */
+}
+
+.login-container button {
+  width: 100%;
+  padding: 0.9em; /* Slightly larger button padding */
+  border: none;
+  border-radius: 6px; /* Slightly more rounded button corners */
+  background-color: #64b5f6; /* Vibrant blue button color */
+  color: #fff;
+  font-size: 1.1em; /* Slightly larger font size for button */
+  font-weight: 400; /* Normal font weight for button text */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Button hover and press transitions */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Subtle button shadow */
+}
+
+.login-container button:hover {
+  background-color: #42a5f5; /* Slightly lighter blue on hover */
+  transform: translateY(-2px); /* Slight upward movement on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Increased shadow on hover */
+}
+
+.login-container button:active {
+  transform: translateY(0); /* Reset transform on active (click) */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Reset shadow on active */
+}
+
+.login-container .error {
+  color: #ff8a80; /* Light red/pinkish color for error messages in dark mode */
+  text-align: center;
+  margin-top: 1.5em; /* More space above error message */
+  padding: 0.8em; /* Padding around error message */
+  background-color: rgba(255, 138, 128, 0.1); /* Very subtle red background for error */
+  border-radius: 6px; /* Rounded corners for error message box */
+  border: 1px solid rgba(255, 138, 128, 0.3); /* Light red border for error box */
+}
+
+/* Make body or a parent container take full viewport height and use flexbox */
+:host { /* Or target a specific parent container if not using standalone component and :host */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure at least full viewport height */
+  justify-content: center; /* Vertically center content */
+  align-items: center; /* Horizontally center content (optional, if you want horizontal centering too) */
+  background-color: #181818; /* Very dark background for the body/page */
+  padding: 20px; /* Optional padding around the edges of the page */
+  box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+/* Styles for the login component (rest of your existing styles) */
+.login-container {
+  max-width: 350px;
+  /* margin: 50px auto;  Remove or comment out margin: auto; for vertical centering to work with flexbox */
+  padding: 2.5em;
+  background-color: #222;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  border: 1px solid #444;
+  transition: box-shadow 0.3s ease;
+  /* ... rest of your .login-container styles ... */
+}
+
+/* ... rest of your CSS rules ... */

@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
 import { ErrorHandler, Injectable } from '@angular/core';
 import { User } from '../models/user';
-import { catchError, map, Observable, of, tap } from 'rxjs';
+import { catchError, map, Observable, of, tap, throwError } from 'rxjs';
 import { Login } from '../models/login';
 import { response } from 'express';
 import { Router } from '@angular/router';
@@ -29,16 +29,32 @@ export class AuthService {
     );
   }
 
-  login(login: Login): Observable<{ jwtToken: string, userDetails: UserResponse }> {
-    return this.http.post<{ jwtToken: string, userDetails: UserResponse }>(`${this.apiUrl}login`, login).pipe(
-      tap(response => {
-        if (response.jwtToken) {
-          localStorage.setItem('jwtToken', response.jwtToken);
-          localStorage.setItem('userDetails', JSON.stringify(response.userDetails));
-        }
-      }),
-      catchError(this.errorHandler.handleError)
-    );
+  login(loginRequest: Login): Observable<{ jwtToken: string; userDetails: any }> {
+    return this.http.post<{ jwtToken: string; userDetails: any }>(this.apiUrl + 'login', loginRequest)
+      .pipe(
+        tap((response) => {
+          if (response?.jwtToken) {
+            localStorage.setItem('jwtToken', response.jwtToken);
+            console.log('Token saved to localStorage:', response.jwtToken);
+            // Important: do any necessary navigation after successful login here
+
+              localStorage.setItem('userDetails', JSON.stringify(response.userDetails));
+
+
+            // Crucial: Redirect to the intended route after login, and not just reload
+            this.router.navigate(['/home']);
+          } else {
+            console.error("Invalid token response or no token found from server", response);
+            // Handle the error appropriately
+            throw new Error("Invalid Login Response"); // Or return an error observable
+          }
+        }),
+        catchError((error) => {
+          console.error('Error logging in:', error);
+          // Important: Display error to the user.
+          return throwError(() => error); // Re-throw the error for handling.
+        })
+      );
   }
 
   getToken() {

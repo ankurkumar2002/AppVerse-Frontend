@@ -1,43 +1,127 @@
+/* Dark Theme Styles */
+
+:root {
+  --bg-color: #222;
+  /* Dark background */
+  --text-color: #eee;
+  /* Light text */
+  --search-bg-color: #333;
+  /* Slightly lighter search bar */
+  --search-border-color: #555;
+  /* Darker border */
+  --search-text-color: #fff;
+  /* White input text */
+  --results-bg-color: rgba(68, 68, 68, 0.95);
+  /* Opaqueish, Darker results */
+  --results-hover-color: #555;
+  /* Even darker hover */
+  --highlight-color: #64b5f6;
+  /* Highlight color for hover/focus */
+}
+
 .dashboard-container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background-color: #121212; /* Dark background for the dashboard */
-  color: #8e8e8e; /* Light text color */
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 20px;
+  min-height: 100vh;
+  /* Ensure the whole space is dark */
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .content {
-  flex: 1;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: calc(100vh - 150px);
+  /* Ensure whole content area is colored */
+  background-color: var(--bg-color);
+  /* Setting  bg-color also  make content dark */
 }
 
+/* Combined Search Bar Styles */
+
 .search-bar-container {
-  width: 100%;
-  max-width: 600px;
-  margin-bottom: 20px;
   position: relative;
+  margin-bottom: 15px;
+  /* Adjusted spacing */
 }
 
 .search-bar {
+  position: relative;
+  /* To position the icon */
+  /* border: 1px solid #777;   REMOVED BORDER FROM HERE */
+}
+
+.search-bar input {
   width: 100%;
-  padding: 10px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+  padding: 14px 45px;
+  /* More padding for comfort & icon spacing */
+  border: 1.5px solid var(--search-border-color);
+  /* More visible border */
+  border-radius: 30px;
+  /* Increased roundness */
+  background-color: var(--search-bg-color);
+  color: var(--search-text-color);
+  font-size: 17px;
+  /* Slightly larger font */
+  outline: none;
+  transition: border-color 0.3s ease;
+  /* Smooth transition */
+}
+
+.search-bar input::placeholder {
+  color: #bbb;   /* Placeholder text color is gray */
+  opacity: 0.8;
+  /* Make the placeholder more subtle */
+}
+
+.search-bar input:focus {
+  border-color: var(--highlight-color);
+  /* Highlight Focus border */
+  box-shadow: 0 0 5px rgba(100, 181, 246, 0.5);
+  /* Add a glow */
+}
+
+.search-bar .material-icons {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  /* Refine icon position */
+  transform: translateY(-50%);
+  color: #aaa;
+  transition: color 0.3s ease;
+  /* Smooth Transition */
+  pointer-events: none;
+  z-index: 1;     /* Ensure Icon is always on top of text */
+}
+
+.search-bar:focus-within .material-icons {
+  color: var(--highlight-color);
 }
 
 .search-results {
   position: absolute;
   top: 100%;
   left: 0;
-  right: 0;
-  background: #333;
-  border: 1px solid #ccc;
-  z-index: 1000;
+  width: 100%;
+  background-color: rgba(68, 68, 68, 1); /* Opaqueish, Darker results - Ensure Alpha is 1! */
+  border: 1px solid var(--search-border-color);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  /* Add subtle shadow */
+  z-index: 100;
+  /* Increased z-index so it shows above all other content */
+  overflow: hidden;
+  overflow-y: auto;
+  /* Enable scroll */
+  max-height: 400px;
+  /* Larger max height */
 }
-
 .search-results ul {
   list-style: none;
   padding: 0;
@@ -45,65 +129,103 @@
 }
 
 .search-results li {
-  padding: 10px;
+  padding: 14px 20px;
+  /* Good spacing */
   cursor: pointer;
-  color: #fff;
+  font-size: 16px;
+  /* Consistent font size */
+  transition: background-color 0.2s ease, color 0.2s ease;
+  /* Added Color Transtion */
+  color: var(--text-color);
+  /* Consistent Text Color */
+  display: flex;
+  /* Flex for Vertical Alignment*/
+  align-items: center;
 }
 
 .search-results li:hover {
-  background: #444;
+  background-color: var(--results-hover-color);
+  color: var(--highlight-color);
+  /* Highlight HoverText */
 }
 
-.info-boxes-container {
-  display: flex; /* Use flexbox to arrange items in a row */
-  flex-direction: column;
-  justify-content: space-around; /* Space out the items evenly */
-  width: 100%; /* Full width of the container */
-  max-width: 1200px; /* Maximum width for the container */
-  margin: 0 auto; /* Center the container */
-
-}
-
-.info-boxes-container {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto; /* Center the container */
-}
-
-.info-box {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  background: #1e1e1e;
-  border: 1px solid #333;
-  border-radius: 4px;
-  width: 200px;
-  text-align: center;
-  margin: 10px;
-  /* flex-direction: row; */
-}
-
-.info-box i {
-  font-size: 2em;
+/* Added for the application image beside it */
+.search-app-icon {
+  width: 24px;
+  /* Slightly Larger Size */
+  height: 24px;
   margin-right: 10px;
-  color: #ccc;
-
+  /* Slightly increased spacing */
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-.info-box-content {
+/* Loading and Error Messages */
+
+.loading-message,
+.error-message {
+  text-align: center;
+  padding: 15px;
+  font-size: 15px;
+  color: #ccc;
+  /* Softer Color */
+}
+
+.recent-activity-container {
+  background-color: var(--search-bg-color);
+  /* Use same background as search bar */
+  border: 1px solid var(--search-border-color);
+  border-radius: 12px;
+  /* More Rounded Corner */
+  padding: 20px;
+  /* More Padding */
+  margin-top: 25px;
+  /* More Spacing */
+  color: var(--text-color);
+  position: relative;
+  /* added so that z-index works as expected */
+  z-index: 1;
+  /* Add this to recent-activity-container */
+}
+
+.recent-activity-container h2 {
+  margin-bottom: 15px;
+  /* Added spacing for heading */
+  font-size: 1.6rem;
+  /* Adjust font size */
+  font-weight: 300;
+  /* LighterFont weight */
+}
+
+.activity-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.activity-list li {
   display: flex;
-  flex-direction: column;
-  color: #ccc;
+  justify-content: space-between;
+  padding: 12px 15px;
+  /* Adjusted spacing */
+  border-bottom: 1px solid var(--search-border-color);
+  align-items: center;
+  /* Vertical Alignment for clean look */
 }
 
-.info-box-text {
-  font-weight: bold;
-  color: #ccc;
+.activity-list li:last-child {
+  border-bottom: none;
 }
 
-.info-box-number {
-  font-size: 1.5em;
-  color: #007bff;
+.activity-description {
+  flex-grow: 1;
+  /* Take up most space */
+  font-size: 1.1rem;
+  /* Improved Text readability */
+}
+
+.activity-timestamp {
+  font-size: 0.9rem;  
+  color: #999;
+  /* Muted color */
 }

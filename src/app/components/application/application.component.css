@@ -1,0 +1,231 @@
+/* Make sure to include this at the very top to override any potential conflicting styles */
+:host {
+  display: block; /* Ensure component takes full width */
+  min-height: 100vh; /* Ensure component is at least viewport height */
+  background-color: #121212; /* Set dark background for the host (component) */
+  color: #f0f0f0; /* Default text color for the component */
+  padding: 20px; /* Add some padding around content */
+  box-sizing: border-box; /* Include padding in width/height calculation */
+}
+
+
+.applications-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #121212;  No need to repeat background here as :host already sets it */
+    /* color: #f0f0f0; No need to repeat text color here as :host already sets it */
+    width: 100%; /* Take full width of parent */
+    min-height: calc(100vh - 40px); /* Ensure container is at least viewport height minus padding */
+    padding-bottom: 20px; /* Add padding at the bottom */
+    box-sizing: border-box;
+}
+
+.controls-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+    margin-bottom: 20px;
+    padding: 10px 0;
+}
+
+.search-bar, .sort-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar .search-icon {
+    margin-right: 5px;
+    color: #aaa;
+    vertical-align: middle;
+}
+
+.search-bar input[type="text"] {
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    margin-left: 10px;
+    width: 250px;
+    background-color: #222;
+    color: #f0f0f0;
+}
+
+.search-bar input[type="text"]::placeholder {
+    color: #aaa;
+}
+
+.sort-bar label {
+    margin-right: 10px;
+    color: #ddd;
+}
+
+.sort-bar select {
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    margin-right: 10px;
+    background-color: #222;
+    color: #f0f0f0;
+}
+
+
+.applications-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    width: 90%;
+    /* min-height: 400px;  Optional: If you want a minimum height for the list itself */
+}
+
+
+.application-card {
+    width: 300px;
+    margin: 15px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: #222;
+    color: #f0f0f0;
+}
+
+
+.application-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+
+.application-icon {
+    max-width: 100%;
+    max-height: 150px;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+    border-bottom: 1px solid #444;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+
+.application-details {
+    padding: 15px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.application-name {
+    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fff;
+}
+
+.application-description {
+    font-size: 1em;
+    color: #ccc;
+    margin-top: 0;
+    margin-bottom: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-height: 1.4;
+    height: calc(1.4em * 3);
+}
+
+
+.application-price {
+    font-size: 1em;
+    color: #00bcd4;
+    margin-top: auto;
+    margin-bottom: 5px;
+    margin-right: 10px;
+}
+
+.application-category {
+    font-size: 0.9em;
+    color: #aaa;
+    margin-bottom: 0;
+    margin-right: auto;
+}
+
+
+.price-category-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+.visit-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 0;
+    margin-left: 10px;
+    align-self: center;
+}
+
+.visit-button:hover {
+    background-color: #0056b3;
+}
+
+.visit-button .visit-icon {
+    font-size: 1em;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+
+.pagination-bar {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-bar button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #333;
+    color: #f0f0f0;
+}
+
+.pagination-bar button:hover:enabled {
+    background-color: #444;
+}
+
+
+.pagination-bar button:disabled {
+    color: #777;
+    background-color: #2a2a2a;
+    border-color: #444;
+    cursor: default;
+}
+
+
+.no-applications, .error-message, .loading-indicator {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: #aaa;
+}

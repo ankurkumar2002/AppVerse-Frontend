@@ -3,7 +3,7 @@
     <form [formGroup]="signupForm" (ngSubmit)="signup()">
       <div>
         <label for="username">Username</label>
-        <input id="username" formControlName="username" required>
+        <input type="text" id="username" formControlName="username" required>
         <div *ngIf="signupForm.get('username')?.touched && signupForm.get('username')?.invalid" class="error">
           <div *ngIf="signupForm.get('username')?.errors?.required">Username is required.</div>
           <div *ngIf="signupForm.get('username')?.errors?.minlength">Username must be at least 3 characters.</div>
@@ -12,7 +12,7 @@
       </div>
       <div>
         <label for="first_name">First Name</label>
-        <input id="first_name" formControlName="first_name" required>
+        <input type="text" id="first_name" formControlName="first_name" required>
         <div *ngIf="signupForm.get('first_name')?.touched && signupForm.get('first_name')?.invalid" class="error">
           <div *ngIf="signupForm.get('first_name')?.errors?.required">First name is required.</div>
           <div *ngIf="signupForm.get('first_name')?.errors?.minlength">First name must be at least 3 characters.</div>
@@ -20,8 +20,8 @@
         </div>
       </div>
       <div>
-        <label for="last_name">Last Name</label>
-        <input id="last_name" formControlName="last_name">
+        <label id="last_name" for="last_name">Last Name</label>
+        <input type="text" id="last_name" formControlName="last_name">
       </div>
       <div>
         <label for="email">Email</label>

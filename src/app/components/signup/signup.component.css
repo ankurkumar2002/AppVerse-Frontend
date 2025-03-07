@@ -1,60 +1,120 @@
-/* Styles for the signup component */
+/* Dark Mode Styles for the signup component */
+
+/* Make body or a parent container take full viewport height and use flexbox for centering (same as login) */
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure at least full viewport height */
+  justify-content: center; /* Vertically center content */
+  align-items: center; /* Horizontally center content */
+  background-color: #181818; /* Very dark background for the body/page */
+  padding: 20px; /* Optional padding around the edges of the page */
+  box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+
 .signup-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 1em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  .signup-container h2 {
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  
-  .signup-container div {
-    margin-bottom: 1em;
-  }
-  
-  .signup-container label {
-    display: block;
-    margin-bottom: 0.5em;
-  }
-  
-  .signup-container input[type="text"],
-  .signup-container input[type="email"],
-  .signup-container input[type="password"] {
-    width: 100%;
-    padding: 0.5em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .signup-container button {
-    width: 100%;
-    padding: 0.5em;
-    border: none;
-    border-radius: 4px;
-    background-color: #007BFF;
-    color: #FFF;
-    font-size: 1em;
-    cursor: pointer;
-  }
-  
-  .signup-container button:hover {
-    background-color: #0056b3;
-  }
-  
-  .signup-container .success {
-    color: green;
-    text-align: center;
-    margin-top: 1em;
-  }
-  
-  .signup-container .error {
-    color: red;
-    text-align: center;
-    margin-top: 1em;
-  }
-  
+  max-width: 600px !important; /* Very large max-width */
+  width: 90% !important;      /* Also set width to 90% of parent, with !important */
+  margin: 0 auto;
+  padding: 2.5em;
+  background-color: #222;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  border: 1px solid #444;
+  transition: box-shadow 0.3s ease;
+  /* ... rest of your .signup-container styles ... */
+}
+
+
+.signup-container:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7); /* Increased shadow on hover */
+}
+
+.signup-container h2 {
+  text-align: center;
+  margin-bottom: 1.5em; /* More space below the title */
+  color: #eee; /* Lighter text color for dark mode */
+  font-weight: 300; /* Lighter font weight for a modern feel */
+  letter-spacing: 0.5px; /* Slight letter spacing for elegance */
+}
+
+.signup-container div {
+  margin-bottom: 1.8em; /* Increased spacing between form elements */
+}
+
+.signup-container label {
+  display: block;
+  margin-bottom: 0.7em; /* More space below labels */
+  color: #ddd; /* Slightly lighter label color */
+  font-weight: 200; /* Even lighter font weight for labels */
+}
+
+.signup-container input[type="text"],
+.signup-container input[type="email"],
+.signup-container input[type="password"] {
+  width: 100%;
+  padding: 0.4em 0.8em; /* Slightly larger input padding */
+  background-color: #333; /* Darker input background */
+  color: #fff; /* White text color for inputs */
+  border: 1px solid #555; /* Darker input border */
+  border-radius: 6px; /* Slightly more rounded input corners */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for inputs */
+  font-size: 1em; /* Ensure font-size is set */
+  font-family: inherit; /* Inherit font-family from parent */
+  outline: none; /* Remove default outline */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle inset shadow */
+}
+
+.signup-container input[type="text"]:focus,
+.signup-container input[type="email"]:focus,
+.signup-container input[type="password"]:focus {
+  border-color: #64b5f6; /* Highlight border color on focus */
+  box-shadow: 0 0 0 2px rgba(100, 181, 246, 0.3); /* Subtle focus box shadow */
+  outline: none; /* Remove default focus outline */
+}
+
+.signup-container button {
+  width: 100%;
+  padding: 0.9em; /* Slightly larger button padding */
+  border: none;
+  border-radius: 6px; /* Slightly more rounded button corners */
+  background-color: #64b5f6; /* Vibrant blue button color (same as login) */
+  color: #fff;
+  font-size: 1.1em; /* Slightly larger font size for button */
+  font-weight: 400; /* Normal font weight for button text */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Button hover and press transitions */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Subtle button shadow */
+}
+
+.signup-container button:hover {
+  background-color: #42a5f5; /* Slightly lighter blue on hover */
+  transform: translateY(-2px); /* Slight upward movement on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Increased shadow on hover */
+}
+
+.signup-container button:active {
+  transform: translateY(0); /* Reset transform on active (click) */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Reset shadow on active */
+}
+
+.signup-container .success {
+  color: #b9f6ca; /* Light green/teal color for success messages in dark mode */
+  text-align: center;
+  margin-top: 1.5em; /* More space above success message */
+  padding: 0.8em; /* Padding around success message */
+  background-color: rgba(185, 246, 202, 0.1); /* Very subtle green background for success */
+  border-radius: 6px; /* Rounded corners for success message box */
+  border: 1px solid rgba(185, 246, 202, 0.3); /* Light green border for success box */
+}
+
+.signup-container .error {
+  color: #ff8a80; /* Light red/pinkish color for error messages in dark mode (same as login) */
+  text-align: center;
+  margin-top: 1.0em; /* More space above error message */
+  padding: 0.1em; /* Padding around error message */
+  background-color: rgba(255, 138, 128, 0.1); /* Very subtle red background for error */
+  border-radius: 6px; /* Rounded corners for error message box */
+  border: 1px solid rgba(255, 138, 128, 0.3); /* Light red border for error box */
+}
