@@ -1,150 +1,168 @@
-/* Dark Mode Navbar Styles */
+/* Professional & Simple Dark Mode Navbar Styles */
 
-/* Base Navbar Styling */
+.navbar-nav .nav-item .nav-link {
+  cursor: pointer;
+}
+
+.navbar-nav .nav-item .dropdown-item {
+  cursor: pointer;
+}
+
+/* Base Navbar Styling - Simple & Professional */
 .navbar {
-  background-color: #222; /* Dark background color to match login container */
-  padding-top: 0.8rem;
-  padding-bottom: 0.8rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+  background-color: #2d3748; /* A slightly lighter, professional dark background */
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Very subtle shadow */
+  border-bottom: 1px solid #4a5568; /* Subtle bottom border for definition */
 }
 
 .navbar-brand {
-  color: #eee; /* Light color for brand text */
+  color: #f7fafc; /* Off-white brand text */
   font-weight: 500; /* Slightly bolder brand text */
-  transition: color 0.3s ease; /* Smooth color transition on hover */
+  font-size: 1.25rem; /* Moderate brand text size */
+  transition: color 0.2s ease;
 }
 
 .navbar-brand:hover {
-  color: #fff; /* White color on brand hover */
+  color: #e2e8f0; /* Slightly softer off-white on hover */
 }
 
 .navbar-toggler {
-  border-color: #555; /* Darker border for toggler icon */
+  border-color: rgba(255, 255, 255, 0.05); /* Very subtle toggler border */
+  background-color: rgba(255, 255, 255, 0.02); /* Very subtle background for toggler */
+  border-radius: 0.2rem;
+}
+
+.navbar-toggler:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(238, 238, 238, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* Light color for toggler icon lines */
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(247, 247, 247, 0.6)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* Off-white toggler icon */
 }
 
-/* Navbar Links */
+/* Navbar Links - Simple & Professional */
 .nav-link {
-  color: #ddd; /* Light gray color for nav links */
-  transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transitions for links */
-  padding-left: 1rem !important; /* Override Bootstrap specificity if needed */
-  padding-right: 1rem !important; /* Override Bootstrap specificity if needed */
-  margin-left: 0.3rem;
-  margin-right: 0.3rem;
-  border-radius: 0.25rem; /* Slightly rounded link corners */
+  color: #cbd5e0; /* Light grayish-blue for nav links */
+  transition: color 0.2s ease, background-color 0.2s ease;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+  border-radius: 0.2rem;
+  font-weight: 400; /* Regular link text weight */
 }
 
 .nav-link:hover,
-.nav-link.active,
 .nav-link:focus {
-  color: #fff; /* White color on link hover/active/focus */
-  background-color: rgba(255, 255, 255, 0.08); /* Subtle light background on hover/active/focus */
+  color: #f7fafc;
+  background-color: rgba(255, 255, 255, 0.05); /* Very subtle hover background */
 }
 
 .nav-link.active {
+  color: #fff;
   font-weight: 500; /* Slightly bolder active link text */
+  background-color: rgba(100, 181, 246, 0.15); /* Subtle blue for active link */
 }
 
 .nav-link.disabled {
-  color: #777 !important; /* Darker color for disabled links */
+  color: #718096 !important;
 }
 
-/* Dropdown Toggle and Menu */
+/* Dropdown Toggle and Menu - Simple & Professional */
 .dropdown-toggle {
-  cursor: pointer; /* Ensure dropdown toggle looks clickable */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 .dropdown-menu {
-  background-color: #333; /* Dark dropdown menu background */
-  border: 1px solid #555; /* Darker dropdown menu border */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Shadow for dropdown menu */
+  background-color: #374151; /* Slightly lighter dropdown background */
+  border: none; /* No border for cleaner look */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Softer dropdown shadow */
+  border-radius: 0.2rem;
+  padding: 0.4rem 0;
 }
 
 .dropdown-item {
-  color: #ddd; /* Light gray color for dropdown items */
-  transition: background-color 0.2s ease, color 0.2s ease; /* Smooth transitions for dropdown items */
+  color: #cbd5e0;
+  padding: 0.6rem 1.2rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-  background-color: #444; /* Slightly lighter background on dropdown item hover/focus */
-  color: #fff; /* White color on dropdown item hover/focus */
+  background-color: rgba(255, 255, 255, 0.08); /* Very subtle hover background */
+  color: #f7fafc;
 }
 
 .dropdown-divider {
-  border-top-color: #555; /* Darker dropdown divider color */
+  border-top-color: #4a5568;
+  margin: 0.4rem 0;
 }
 
-/* Login/Signup Buttons */
+/* Login/Signup Buttons - Simple & Professional */
 .btn-outline-primary,
 .btn-outline-secondary {
-  color: #64b5f6; /* Vibrant blue color for buttons */
-  border-color: #64b5f6; /* Vibrant blue border for buttons */
-  transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease; /* Button transitions */
-  margin-left: 0.3rem;
-  margin-right: 0.3rem;
+  color: #64b5f6;
+  border-color: #64b5f6;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+  border-radius: 0.2rem;
+  font-weight: 400; /* Regular button text weight */
+  padding: 0.5rem 1rem;
 }
 
 .btn-outline-primary:hover,
 .btn-outline-secondary:hover,
 .btn-outline-primary:focus,
 .btn-outline-secondary:focus {
-  color: #fff; /* White text on button hover/focus */
-  background-color: #64b5f6; /* Vibrant blue background on hover/focus */
-  border-color: #64b5f6; /* Keep blue border on hover/focus */
-  box-shadow: 0 2px 5px rgba(100, 181, 246, 0.4); /* Subtle shadow on button hover/focus */
+  color: #fff;
+  background-color: rgba(100, 181, 246, 0.2); /* Subtle blue hover background */
+  border-color: #64b5f6;
+  box-shadow: none; /* Remove shadow on button hover for simplicity */
 }
 
-.btn-outline-success {
-  color: #aed581; /* Light green color for success button */
+.btn-outline-success { /* Keeping success button styles as is, adjust if needed */
+  color: #aed581;
   border-color: #aed581;
-  transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
-  margin-left: 0.3rem;
-  margin-right: 0.3rem;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
 }
 
 .btn-outline-success:hover,
 .btn-outline-success:focus {
   color: #fff;
-  background-color: #aed581;
+  background-color: rgba(174, 213, 129, 0.2); /* Subtle green hover background */
   border-color: #aed581;
-  box-shadow: 0 2px 5px rgba(174, 213, 129, 0.4);
+  box-shadow: none; /* Remove shadow on button hover for simplicity */
 }
 
-/* Profile Image and Username in Dropdown (if you have specific navbar styles for these) */
+/* Profile Image and Username in Dropdown - Simple & Professional */
 .profile-image {
-  /* Already have profile image styles in previous CSS, keep those or adjust here if needed */
-}
-
-.username-navbar {
-  /* Already have username navbar styles in previous CSS, keep those or adjust here if needed */
-}
-
-.dropdown-icon {
-  /* Already have dropdown icon styles in previous CSS, keep those or adjust here if needed */
-}
-
-/* **Profile Image and Username in Dropdown (NOW INCLUDED)** */
-.profile-image {
-  width: 25px;
-  height: 25px;
+  width: 28px; /* Slightly smaller profile image */
+  height: 28px;
   border-radius: 50%;
-  margin-right: 5px;
+  margin-right: 6px; /* Reduced spacing */
   object-fit: cover;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Very subtle border */
+  box-shadow: none; /* No shadow for profile image */
 }
 
 .username-navbar {
-  color: white;
+  color: #f7fafc; /* Off-white username */
   vertical-align: middle;
+  font-weight: 400; /* Regular username weight */
 }
 
 .dropdown-icon {
-  font-size: 0.8em;
-  margin-left: 2px;
+  font-size: 0.75em; /* Slightly smaller dropdown icon */
+  margin-left: 3px; /* Reduced spacing for dropdown icon */
   vertical-align: middle;
-  color: white;
+  color: #f7fafc;
+  opacity: 0.7; /* Slightly more transparent icon */
 }

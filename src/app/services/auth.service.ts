@@ -23,11 +23,29 @@ export class AuthService {
     return token ? new HttpHeaders().set('Authorization', `Bearer ${token}`) : undefined;
   }
 
-  signup(user:User): Observable<User>{
-    return this.http.post<User>(this.apiUrl+'signup',user).pipe(
-      catchError(this.errorHandler.handleError)
+  signup(user: User): Observable<User> {
+    console.log("AuthService.signup() called, making POST request..."); // <--- ADD THIS LINE
+    return this.http.post<User>(this.apiUrl + 'signup', user).pipe(
+        catchError((error: HttpErrorResponse) => {
+            console.log("AuthService.signup() - catchError block is executing!"); // <--- KEEP THIS LOG
+            // ... your error handling logic ...
+            if (error.status === 500) { // Keep your existing error status check
+              console.log('It is 500 error ');
+              console.log(error.error.message);
+                if (error.error && error.error.message) {
+                    if (error.error.message.toLowerCase().includes('username already exists!')) {
+                        console.log('username already exists - inside if block'); // <--- KEEP THIS LOG
+                        return throwError(() => 'Username already exists. Please choose a different username.');
+                    } else if (error.error.message.toLowerCase().includes('email already exists!')) {
+                        console.log('email already exists - inside else if block'); // <--- KEEP THIS LOG
+                        return throwError(() => 'Email already exists. Please use a different email.');
+                    }
+                }
+            }
+            return this.errorHandler.handleError(error); // Keep your generic handler
+        })
     );
-  }
+}
 
   login(loginRequest: Login): Observable<{ jwtToken: string; userDetails: any }> {
     return this.http.post<{ jwtToken: string; userDetails: any }>(this.apiUrl + 'login', loginRequest)
