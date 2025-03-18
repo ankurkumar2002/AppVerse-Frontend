@@ -7,7 +7,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser'; // Im
 
 @Injectable({ providedIn: 'root' })
 export class ApplicationsService {
-  private apiUrl = 'http://localhost:8084/api/applications';
+  private apiUrl = 'http://localhost:8060/api/applications';
 
   constructor(private http: HttpClient, private sanitizer: DomSanitizer) {} // Inject DomSanitizer
 
@@ -56,7 +56,7 @@ export class ApplicationsService {
   }
 
   private getAuthorizedImage(imageName: string, headers: HttpHeaders): Observable<Blob> {
-    const imageUrl = `http://localhost:8084/api/images/icons/${imageName}`;
+    const imageUrl = `http://localhost:8060/api/images/icons/${imageName}`;
     return this.http.get(imageUrl, { headers: headers, responseType: 'blob' });
   }
 
@@ -77,4 +77,5 @@ export class ApplicationsService {
     console.log('Token retrieved:', token);
     return token ? new HttpHeaders().set('Authorization', `Bearer ${token}`) : undefined;
   }
+
 }

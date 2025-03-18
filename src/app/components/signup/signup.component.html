@@ -1,47 +1,53 @@
 <div class="signup-container">
-    <h2>Signup</h2>
-    <form [formGroup]="signupForm" (ngSubmit)="signup()">
-      <div>
-        <label for="username">Username</label>
-        <input type="text" id="username" formControlName="username" required>
-        <div *ngIf="signupForm.get('username')?.touched && signupForm.get('username')?.invalid" class="error">
-          <div *ngIf="signupForm.get('username')?.errors?.required">Username is required.</div>
-          <div *ngIf="signupForm.get('username')?.errors?.minlength">Username must be at least 3 characters.</div>
-          <div *ngIf="signupForm.get('username')?.errors?.maxlength">Username must be less than 20 characters.</div>
-        </div>
+  <h2>Signup</h2>
+  <form [formGroup]="signupForm" (ngSubmit)="signup()">
+    <div>
+      <label for="username">Username</label>
+      <input type="text" id="username" formControlName="username" required>
+      <div *ngIf="signupForm.get('username')?.touched && signupForm.get('username')?.invalid" class="error">
+        <div *ngIf="signupForm.get('username')?.errors?.required">Username is required.</div>
+        <div *ngIf="signupForm.get('username')?.errors?.minlength">Username must be at least 3 characters.</div>
+        <div *ngIf="signupForm.get('username')?.errors?.maxlength">Username must be less than 20 characters.</div>
       </div>
-      <div>
-        <label for="first_name">First Name</label>
-        <input type="text" id="first_name" formControlName="first_name" required>
-        <div *ngIf="signupForm.get('first_name')?.touched && signupForm.get('first_name')?.invalid" class="error">
-          <div *ngIf="signupForm.get('first_name')?.errors?.required">First name is required.</div>
-          <div *ngIf="signupForm.get('first_name')?.errors?.minlength">First name must be at least 3 characters.</div>
-          <div *ngIf="signupForm.get('first_name')?.errors?.maxlength">First name must be less than 20 characters.</div>
-        </div>
+      <div *ngIf="usernameExistsError" class="error">{{ usernameExistsError }}</div>  <!-- Username exists error -->
+    </div>
+    <div>
+      <label for="first_name">First Name</label>
+      <input type="text" id="first_name" formControlName="first_name" required>
+      <div *ngIf="signupForm.get('first_name')?.touched && signupForm.get('first_name')?.invalid" class="error">
+        <div *ngIf="signupForm.get('first_name')?.errors?.required">First name is required.</div>
+        <div *ngIf="signupForm.get('first_name')?.errors?.minlength">First name must be at least 3 characters.</div>
+        <div *ngIf="signupForm.get('first_name')?.errors?.maxlength">First name must be less than 20 characters.</div>
       </div>
-      <div>
-        <label id="last_name" for="last_name">Last Name</label>
-        <input type="text" id="last_name" formControlName="last_name">
+    </div>
+    <div>
+      <label id="last_name" for="last_name">Last Name</label>
+      <input type="text" id="last_name" formControlName="last_name">
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" required>
+      <div *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid" class="error">
+        <div *ngIf="signupForm.get('email')?.errors?.required">Email is required.</div>
+        <div *ngIf="signupForm.get('email')?.errors?.email">Please enter a valid email.</div>
       </div>
-      <div>
-        <label for="email">Email</label>
-        <input id="email" type="email" formControlName="email" required>
-        <div *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid" class="error">
-          <div *ngIf="signupForm.get('email')?.errors?.required">Email is required.</div>
-          <div *ngIf="signupForm.get('email')?.errors?.email">Please enter a valid email.</div>
-        </div>
+      <div *ngIf="emailExistsError" class="error">{{ emailExistsError }}</div> <!-- Email exists error -->
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input id="password" type="password" formControlName="password" required>
+      <div *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid" class="error">
+        <div *ngIf="signupForm.get('password')?.errors?.required">Password is required.</div>
+        <div *ngIf="signupForm.get('password')?.errors?.minlength">Password must be at least 8 characters.</div>
       </div>
-      <div>
-        <label for="password">Password</label>
-        <input id="password" type="password" formControlName="password" required>
-        <div *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid" class="error">
-          <div *ngIf="signupForm.get('password')?.errors?.required">Password is required.</div>
-          <div *ngIf="signupForm.get('password')?.errors?.minlength">Password must be at least 8 characters.</div>
-        </div>
-      </div>
-      <button type="submit">Signup</button>
-    </form>
-    <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
-    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
-  </div>
-  
+    </div>
+    <button type="submit">Signup</button>
+  </form>
+  <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+  <div *ngIf="genericErrorMessage && !emailExistsError && !usernameExistsError && !serverError" class="error">{{ genericErrorMessage }}</div>  <!-- Generic error -->
+  <div *ngIf="usernameExistsError" class="error">{{ usernameExistsError }}</div> <!-- Username exists error (ADD THIS BACK) -->
+  <div *ngIf="emailExistsError" class="error">{{ emailExistsError }}</div> <!-- Email exists error (ADD THIS BACK) -->
+  <div *ngIf="serverError" class="error">{{ serverError }}</div> <!-- Server error -->
+  <div *ngIf="validationError" class="error">{{ validationError }}</div> <!-- Client-side validation error -->
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>  <!-- Fallback - remove this line, use genericErrorMessage -->
+</div>

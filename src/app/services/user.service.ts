@@ -64,6 +64,7 @@ export class UserService {
 
     getUserByUsername(username: string): Observable<User> {
         const headers = this.createAuthHeaders();
+        console.log(headers);
         return this.http.get<User>(`${this.apiUrl}auth/get-user-info`, { headers, params: { username } }).pipe(
             tap(user => {
                 this.updateUserDataAndLocalStorage(user);
@@ -74,6 +75,7 @@ export class UserService {
 
     getProfileImageBlob(imagePath: string | undefined): Observable<Blob> {
         const headers = this.createAuthHeaders();
+        console.log(headers);
         if (imagePath) {
             const imageUrl = `${this.apiUrl}auth/profile-image?imagePath=${encodeURIComponent(imagePath)}`;
             console.log('UserService - Fetching image with URL:', imageUrl);

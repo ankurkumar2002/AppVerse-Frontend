@@ -1,102 +1,95 @@
-/* Dark Theme Styles */
+/* Enhanced Dark Theme Styles */
 
 :root {
   --bg-color: #222;
-  /* Dark background */
   --text-color: #eee;
-  /* Light text */
   --search-bg-color: #333;
-  /* Slightly lighter search bar */
   --search-border-color: #555;
-  /* Darker border */
   --search-text-color: #fff;
-  /* White input text */
   --results-bg-color: rgba(68, 68, 68, 0.95);
-  /* Opaqueish, Darker results */
   --results-hover-color: #555;
-  /* Even darker hover */
   --highlight-color: #64b5f6;
-  /* Highlight color for hover/focus */
 }
 
 .dashboard-container {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif; /* More modern font */
   background-color: var(--bg-color);
   color: var(--text-color);
-  padding: 20px;
+  padding: 30px; /* Slightly more padding */
   min-height: 100vh;
-  /* Ensure the whole space is dark */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack header and content vertically */
+  align-items: center; /* Center content horizontally */
 }
 
 .header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px; /* More spacing below header */
 }
+
+.header h1 {
+  font-size: 2.5rem; /* Larger, more prominent heading */
+  font-weight: 300; /* Lighter font weight for elegance */
+  letter-spacing: -0.02em; /* Slightly tighter letter spacing */
+  color: #f0f0f0; /* Slightly softer white for heading */
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3); /* Subtle text shadow for depth */
+}
+
 
 .content {
-  max-width: 800px;
-  margin: 0 auto;
-  min-height: calc(100vh - 150px);
-  /* Ensure whole content area is colored */
+  max-width: 900px; /* Slightly wider content area */
+  width: 100%; /* Ensure content takes full width up to max-width */
+  margin: 0 auto; /* Center content block */
+  min-height: calc(100vh - 180px); /* Adjust min-height for padding and header */
   background-color: var(--bg-color);
-  /* Setting  bg-color also  make content dark */
 }
 
-/* Combined Search Bar Styles */
+/* Enhanced Search Bar Styles */
 
 .search-bar-container {
   position: relative;
-  margin-bottom: 15px;
-  /* Adjusted spacing */
+  margin-bottom: 25px; /* More margin below search bar */
 }
 
 .search-bar {
   position: relative;
-  /* To position the icon */
-  /* border: 1px solid #777;   REMOVED BORDER FROM HERE */
 }
 
 .search-bar input {
   width: 100%;
-  padding: 14px 45px;
-  /* More padding for comfort & icon spacing */
+  padding: 16px 50px 16px 45px; /* Adjusted padding for vertical and icon balance */
   border: 1.5px solid var(--search-border-color);
-  /* More visible border */
-  border-radius: 30px;
-  /* Increased roundness */
+  border-radius: 35px; /* Even more rounded */
   background-color: var(--search-bg-color);
   color: var(--search-text-color);
-  font-size: 17px;
-  /* Slightly larger font */
+  font-size: 18px; /* Slightly larger input font */
+  font-weight: 300; /* Lighter input font weight */
   outline: none;
-  transition: border-color 0.3s ease;
-  /* Smooth transition */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
 }
 
 .search-bar input::placeholder {
-  color: #bbb;   /* Placeholder text color is gray */
-  opacity: 0.8;
-  /* Make the placeholder more subtle */
+  color: #999; /* Darker placeholder text */
+  opacity: 0.7; /* More subtle placeholder */
+  font-weight: 300; /* Lighter placeholder font */
 }
 
 .search-bar input:focus {
   border-color: var(--highlight-color);
-  /* Highlight Focus border */
-  box-shadow: 0 0 5px rgba(100, 181, 246, 0.5);
-  /* Add a glow */
+  box-shadow: 0 0 7px rgba(100, 181, 246, 0.6); /* Stronger focus glow */
 }
 
 .search-bar .material-icons {
   position: absolute;
   top: 50%;
-  left: 20px;
-  /* Refine icon position */
+  left: 25px; /* Slightly adjusted icon position */
   transform: translateY(-50%);
-  color: #aaa;
+  color: #888; /* Darker icon color */
   transition: color 0.3s ease;
-  /* Smooth Transition */
   pointer-events: none;
-  z-index: 1;     /* Ensure Icon is always on top of text */
+  z-index: 1;
+  font-size: 22px; /* Slightly larger search icon */
 }
 
 .search-bar:focus-within .material-icons {
@@ -108,20 +101,17 @@
   top: 100%;
   left: 0;
   width: 100%;
-  background-color: rgba(68, 68, 68, 1); /* Opaqueish, Darker results - Ensure Alpha is 1! */
+  background-color: rgba(45, 45, 45, 0.98); /* Slightly lighter result background */
   border: 1px solid var(--search-border-color);
   border-top: none;
-  border-radius: 0 0 10px 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  /* Add subtle shadow */
+  border-radius: 0 0 12px 12px; /* Rounded corners for results */
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4); /* More pronounced result shadow */
   z-index: 100;
-  /* Increased z-index so it shows above all other content */
   overflow: hidden;
   overflow-y: auto;
-  /* Enable scroll */
-  max-height: 400px;
-  /* Larger max height */
+  max-height: 450px; /* Increased max height for results */
 }
+
 .search-results ul {
   list-style: none;
   padding: 0;
@@ -129,35 +119,32 @@
 }
 
 .search-results li {
-  padding: 14px 20px;
-  /* Good spacing */
+  padding: 15px 22px; /* Adjusted padding for list items */
   cursor: pointer;
-  font-size: 16px;
-  /* Consistent font size */
+  font-size: 17px; /* Slightly larger result font */
   transition: background-color 0.2s ease, color 0.2s ease;
-  /* Added Color Transtion */
   color: var(--text-color);
-  /* Consistent Text Color */
   display: flex;
-  /* Flex for Vertical Alignment*/
   align-items: center;
+  border-bottom: 1px solid rgba(85, 85, 85, 0.6); /* Added subtle divider */
+}
+
+.search-results li:last-child {
+  border-bottom: none; /* Remove divider on last item */
 }
 
 .search-results li:hover {
   background-color: var(--results-hover-color);
-  color: var(--highlight-color);
-  /* Highlight HoverText */
+  color: #fff; /* White text on hover for contrast */
 }
 
-/* Added for the application image beside it */
 .search-app-icon {
-  width: 24px;
-  /* Slightly Larger Size */
-  height: 24px;
-  margin-right: 10px;
-  /* Slightly increased spacing */
+  width: 26px; /* Slightly larger app icon */
+  height: 26px;
+  margin-right: 12px; /* Increased spacing for app icon */
   border-radius: 50%;
   object-fit: cover;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for app icon */
 }
 
 /* Loading and Error Messages */
@@ -165,36 +152,32 @@
 .loading-message,
 .error-message {
   text-align: center;
-  padding: 15px;
-  font-size: 15px;
-  color: #ccc;
-  /* Softer Color */
+  padding: 20px; /* More padding for messages */
+  font-size: 16px; /* Slightly larger message font */
+  color: #bbb; /* Softer message color */
+  font-weight: 300; /* Lighter message font weight */
 }
+
+/* Enhanced Recent Activity Container */
 
 .recent-activity-container {
   background-color: var(--search-bg-color);
-  /* Use same background as search bar */
   border: 1px solid var(--search-border-color);
-  border-radius: 12px;
-  /* More Rounded Corner */
-  padding: 20px;
-  /* More Padding */
-  margin-top: 25px;
-  /* More Spacing */
+  border-radius: 15px; /* More rounded corners for activity container */
+  padding: 25px; /* More padding inside activity container */
+  margin-top: 30px; /* More spacing above activity container */
   color: var(--text-color);
   position: relative;
-  /* added so that z-index works as expected */
   z-index: 1;
-  /* Add this to recent-activity-container */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for activity container */
 }
 
 .recent-activity-container h2 {
-  margin-bottom: 15px;
-  /* Added spacing for heading */
-  font-size: 1.6rem;
-  /* Adjust font size */
+  margin-bottom: 20px; /* More spacing below activity heading */
+  font-size: 1.8rem; /* Slightly larger activity heading */
   font-weight: 300;
-  /* LighterFont weight */
+  color: #e0e0e0; /* Slightly softer white for activity heading */
+  letter-spacing: -0.01em; /* Slightly tighter letter spacing for heading */
 }
 
 .activity-list {
@@ -206,11 +189,9 @@
 .activity-list li {
   display: flex;
   justify-content: space-between;
-  padding: 12px 15px;
-  /* Adjusted spacing */
-  border-bottom: 1px solid var(--search-border-color);
+  padding: 14px 18px; /* Adjusted padding for activity list items */
+  border-bottom: 1px solid rgba(85, 85, 85, 0.6); /* Subtle divider for activity items */
   align-items: center;
-  /* Vertical Alignment for clean look */
 }
 
 .activity-list li:last-child {
@@ -219,13 +200,17 @@
 
 .activity-description {
   flex-grow: 1;
-  /* Take up most space */
-  font-size: 1.1rem;
-  /* Improved Text readability */
+  font-size: 1.2rem; /* Slightly larger activity description font */
+  line-height: 1.5; /* Improved line height for readability */
+  color: #ddd; /* Slightly softer white for description */
 }
 
 .activity-timestamp {
-  font-size: 0.9rem;  
-  color: #999;
-  /* Muted color */
+  font-size: 1rem; /* Slightly larger timestamp font */
+  color: #aaa; /* Muted timestamp color */
+  font-weight: 300; /* Lighter timestamp font weight */
 }
+
+
+/* Import Roboto Font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');

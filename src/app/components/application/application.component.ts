@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms'; // Import FormsModule for ngModel
   standalone: true,
   imports: [CommonModule, FormsModule], // Add FormsModule to imports
   templateUrl: './application.component.html',
-  styleUrl: './application.component.css'
+  styleUrl: './application.component.scss'
 })
 export class ApplicationComponent implements OnInit {
   applications: Application[] = [];

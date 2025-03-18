@@ -1,0 +1,289 @@
+/* Enhanced Dark Theme Styles for Applications Page */
+
+:host {
+    display: block;
+    min-height: 100vh;
+    background-color: #181818; /* Very dark background - consistent with other pages */
+    color: #f0f0f0;
+    padding: 30px; /* Increased padding for better spacing */
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; /* Apply Roboto font for consistency */
+  }
+  
+  .applications-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: calc(100vh - 60px); /* Adjust min-height for increased padding */
+    padding-bottom: 30px; /* Match bottom padding to top padding */
+    box-sizing: border-box;
+  }
+  
+  .controls-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+    margin-bottom: 30px; /* Increased margin for better spacing */
+    padding: 15px 0; /* Increased padding */
+  }
+  
+  .search-bar,
+  .sort-bar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-bar .search-icon {
+    margin-right: 10px; /* Increased spacing for icon */
+    color: #aaa;
+    vertical-align: middle;
+    font-size: 20px; /* Slightly larger search icon */
+  }
+  
+  .search-bar input[type="text"] {
+    padding: 12px; /* Increased padding */
+    border: 1.5px solid #444; /* Thicker border */
+    border-radius: 8px; /* Rounded corners */
+    margin-left: 10px;
+    width: 300px; /* Wider search input */
+    background-color: #2d2d2d; /* Slightly lighter background */
+    color: #f0f0f0;
+    font-size: 1rem; /* Consistent font size */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    outline: none; /* Remove default outline */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle inset shadow */
+  }
+  
+  .search-bar input[type="text"]::placeholder {
+    color: #999; /* Darker placeholder */
+    opacity: 0.8; /* More subtle placeholder */
+  }
+  
+  .search-bar input[type="text"]:focus {
+    border-color: #64b5f6; /* Highlight color on focus */
+    box-shadow: 0 0 5px rgba(100, 181, 246, 0.5), inset 0 1px 3px rgba(0, 0, 0, 0); /* Focus glow */
+  }
+  
+  .sort-bar label {
+    margin-right: 15px; /* Increased spacing for label */
+    color: #ddd;
+    font-size: 1.1rem; /* Slightly larger label font */
+  }
+  
+  .sort-bar select {
+    padding: 12px; /* Increased padding */
+    border: 1.5px solid #444; /* Thicker border */
+    border-radius: 8px; /* Rounded corners */
+    margin-right: 15px; /* Increased spacing */
+    background-color: #2d2d2d; /* Slightly lighter background */
+    color: #f0f0f0;
+    font-size: 1rem; /* Consistent font size */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    outline: none; /* Remove default outline */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle inset shadow */
+  }
+  
+  .sort-bar select:focus {
+    border-color: #64b5f6; /* Highlight color on focus */
+    box-shadow: 0 0 5px rgba(100, 181, 246, 0.5), inset 0 1px 3px rgba(0, 0, 0, 0); /* Focus glow */
+  }
+  
+  
+  .applications-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    width: 90%;
+    /* min-height: 400px;  Optional: If you want a minimum height for the list itself */
+  }
+  
+  
+  .application-card {
+    width: 320px; /* Slightly wider cards */
+    margin: 20px; /* Increased margin for better spacing */
+    border: none; /* Removed border - cleaner look */
+    border-radius: 12px; /* More rounded corners */
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: #2a2a2a; /* Slightly lighter card background */
+    color: #f0f0f0;
+  }
+  
+  
+  .application-card:hover {
+    transform: translateY(-7px); /* Increased lift on hover */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+  }
+  
+  
+  .application-icon {
+    max-width: 100%;
+    max-height: 180px; /* Increased max height for icons */
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+    border-bottom: 1px solid #444; /* Keep border under icon */
+    padding: 20px; /* Increased padding for icons */
+    box-sizing: border-box;
+  }
+  
+  
+  .application-details {
+    padding: 20px; /* Increased padding */
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .application-name {
+    font-size: 1.3em; /* Slightly larger name */
+    margin-top: 0;
+    margin-bottom: 10px; /* Increased spacing */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fff; /* White name */
+    font-weight: 500; /* Slightly bolder name */
+    letter-spacing: 0.3px; /* Slight letter spacing */
+  }
+  
+  .application-description {
+    font-size: 1.05em; /* Slightly larger description */
+    color: #ccc;
+    margin-top: 0;
+    margin-bottom: 15px; /* Increased spacing */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-height: 1.5; /* Improved line height */
+    height: calc(1.5em * 3);
+  }
+  
+  
+  .application-price {
+    font-size: 1.05em; /* Slightly larger price */
+    color: #64b5f6; /* Highlight color for price */
+    margin-top: auto;
+    margin-bottom: 8px; /* Increased spacing */
+    margin-right: 15px; /* Increased spacing */
+    font-weight: 500; /* Slightly bolder price */
+  }
+  
+  .application-category {
+    font-size: 1em; /* Slightly larger category */
+    color: #aaa;
+    margin-bottom: 0;
+    margin-right: auto;
+  }
+  
+  
+  .price-category-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px; /* Added margin above the row */
+  }
+  
+  
+  .visit-button {
+    padding: 12px 25px; /* Increased button padding */
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    background-color: #64b5f6; /* Highlight color for button */
+    color: white;
+    cursor: pointer;
+    font-size: 1.05em; /* Slightly larger font */
+    font-weight: 500; /* Slightly bolder text */
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Added transitions */
+    margin-top: 0;
+    margin-left: 15px; /* Increased spacing */
+    align-self: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle button shadow */
+  }
+  
+  .visit-button:hover {
+    background-color: #0056b3; /* Darker hover color */
+    transform: translateY(-2px); /* Subtle lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+  }
+  
+  .visit-button:active {
+    transform: translateY(0); /* Reset transform on active */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Reset shadow on active */
+  }
+  
+  .visit-button .visit-icon {
+    font-size: 1em;
+    vertical-align: middle;
+    margin-left: 8px; /* Increased spacing for icon */
+  }
+  
+  
+  .pagination-bar {
+    margin-top: 30px; /* Increased margin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .pagination-bar button {
+    padding: 12px 25px; /* Increased padding */
+    margin: 0 15px; /* Increased margin */
+    border: none; /* Removed border - cleaner look */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    background-color: #3a3a3a; /* Slightly lighter pagination button background */
+    color: #f0f0f0;
+    font-size: 1em; /* Consistent font size */
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Added transitions */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  }
+  
+  .pagination-bar button:hover:enabled {
+    background-color: #4a4a4a; /* Lighter hover background */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+  }
+  
+  
+  .pagination-bar button:disabled {
+    color: #777;
+    background-color: #2a2a2a; /* Darker disabled button background */
+    border-color: #444;
+    cursor: default;
+    box-shadow: none; /* Removed shadow for disabled state */
+  }
+  
+  .pagination-bar span {
+    color: #ddd; /* Lighter page number text */
+    margin: 0 20px; /* Increased spacing for page number */
+    font-size: 1em; /* Consistent font size */
+  }
+  
+  
+  .no-applications,
+  .error-message,
+  .loading-indicator {
+    text-align: center;
+    padding: 30px; /* Increased padding for messages */
+    font-style: italic;
+    color: #aaa;
+    font-size: 1.1rem; /* Slightly larger message font */
+  }
+  
+  .pagination-bar .pagination-icon {
+      font-size: 1.2em; /* Slightly larger pagination icons */
+      vertical-align: middle;
+      margin: 0 5px; /* Added margin for icons */
+  }
+  
+  
+  /* Import Roboto Font if not already included */
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
